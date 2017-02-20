@@ -1,0 +1,132 @@
+2017-02-20 09:23:55
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.111-b14 mixed mode):
+
+"Attach Listener" #14 daemon prio=9 os_prio=31 tid=0x00007fa5cf803800 nid=0x1007 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"DestroyJavaVM" #13 prio=5 os_prio=31 tid=0x00007fa5d0919800 nid=0x1c03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Thread-3" #12 prio=5 os_prio=31 tid=0x00007fa5d0918800 nid=0x5303 waiting for monitor entry [0x000070000a05d000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at by.darashchonak.mentoring.deadlock.Deadlocker.setValue(Deadlocker.java:17)
+	- waiting to lock <0x00000007955f5288> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Main.lambda$3(Main.java:24)
+	at by.darashchonak.mentoring.deadlock.Main$$Lambda$4/142257191.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:745)
+
+"Thread-2" #11 prio=5 os_prio=31 tid=0x00007fa5d0918000 nid=0x5103 waiting for monitor entry [0x0000700009f5a000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at by.darashchonak.mentoring.deadlock.Deadlocker.setValue(Deadlocker.java:17)
+	- waiting to lock <0x00000007955f5248> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Main.lambda$2(Main.java:21)
+	at by.darashchonak.mentoring.deadlock.Main$$Lambda$3/135721597.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:745)
+
+"Thread-1" #10 prio=5 os_prio=31 tid=0x00007fa5d10cd000 nid=0x4f03 waiting for monitor entry [0x0000700009e57000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at by.darashchonak.mentoring.deadlock.Deadlocker.setValue(Deadlocker.java:17)
+	- waiting to lock <0x00000007955f5248> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Deadlocker.syncValueWith(Deadlocker.java:28)
+	- locked <0x00000007955f5288> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Main.lambda$1(Main.java:17)
+	at by.darashchonak.mentoring.deadlock.Main$$Lambda$2/303563356.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:745)
+
+"Thread-0" #9 prio=5 os_prio=31 tid=0x00007fa5d1052000 nid=0x4d03 waiting for monitor entry [0x0000700009d54000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at by.darashchonak.mentoring.deadlock.Deadlocker.setValue(Deadlocker.java:17)
+	- waiting to lock <0x00000007955f5288> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Deadlocker.syncValueWith(Deadlocker.java:28)
+	- locked <0x00000007955f5248> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Main.lambda$0(Main.java:14)
+	at by.darashchonak.mentoring.deadlock.Main$$Lambda$1/531885035.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:745)
+
+"Service Thread" #8 daemon prio=9 os_prio=31 tid=0x00007fa5cf829000 nid=0x4903 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C1 CompilerThread2" #7 daemon prio=9 os_prio=31 tid=0x00007fa5cf82c000 nid=0x4703 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread1" #6 daemon prio=9 os_prio=31 tid=0x00007fa5d082f800 nid=0x4503 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" #5 daemon prio=9 os_prio=31 tid=0x00007fa5d0857000 nid=0x4303 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Signal Dispatcher" #4 daemon prio=9 os_prio=31 tid=0x00007fa5d0865000 nid=0x4103 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Finalizer" #3 daemon prio=8 os_prio=31 tid=0x00007fa5d1040800 nid=0x3103 in Object.wait() [0x000070000963f000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x0000000795588e98> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+	- locked <0x0000000795588e98> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+"Reference Handler" #2 daemon prio=10 os_prio=31 tid=0x00007fa5d081f800 nid=0x2f03 in Object.wait() [0x000070000953c000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x0000000795586b40> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:502)
+	at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+	- locked <0x0000000795586b40> (a java.lang.ref.Reference$Lock)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+"VM Thread" os_prio=31 tid=0x00007fa5d103c000 nid=0x2d03 runnable 
+
+"GC task thread#0 (ParallelGC)" os_prio=31 tid=0x00007fa5d0809000 nid=0x2503 runnable 
+
+"GC task thread#1 (ParallelGC)" os_prio=31 tid=0x00007fa5d0809800 nid=0x2703 runnable 
+
+"GC task thread#2 (ParallelGC)" os_prio=31 tid=0x00007fa5d080a000 nid=0x2903 runnable 
+
+"GC task thread#3 (ParallelGC)" os_prio=31 tid=0x00007fa5d080b000 nid=0x2b03 runnable 
+
+"VM Periodic Task Thread" os_prio=31 tid=0x00007fa5d000a800 nid=0x4b03 waiting on condition 
+
+JNI global references: 312
+
+
+Found one Java-level deadlock:
+=============================
+"Thread-3":
+  waiting to lock monitor 0x00007fa5d0008a98 (object 0x00000007955f5288, a by.darashchonak.mentoring.deadlock.Deadlocker),
+  which is held by "Thread-1"
+"Thread-1":
+  waiting to lock monitor 0x00007fa5cf8a1758 (object 0x00000007955f5248, a by.darashchonak.mentoring.deadlock.Deadlocker),
+  which is held by "Thread-0"
+"Thread-0":
+  waiting to lock monitor 0x00007fa5d0008a98 (object 0x00000007955f5288, a by.darashchonak.mentoring.deadlock.Deadlocker),
+  which is held by "Thread-1"
+
+Java stack information for the threads listed above:
+===================================================
+"Thread-3":
+	at by.darashchonak.mentoring.deadlock.Deadlocker.setValue(Deadlocker.java:17)
+	- waiting to lock <0x00000007955f5288> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Main.lambda$3(Main.java:24)
+	at by.darashchonak.mentoring.deadlock.Main$$Lambda$4/142257191.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:745)
+"Thread-1":
+	at by.darashchonak.mentoring.deadlock.Deadlocker.setValue(Deadlocker.java:17)
+	- waiting to lock <0x00000007955f5248> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Deadlocker.syncValueWith(Deadlocker.java:28)
+	- locked <0x00000007955f5288> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Main.lambda$1(Main.java:17)
+	at by.darashchonak.mentoring.deadlock.Main$$Lambda$2/303563356.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:745)
+"Thread-0":
+	at by.darashchonak.mentoring.deadlock.Deadlocker.setValue(Deadlocker.java:17)
+	- waiting to lock <0x00000007955f5288> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Deadlocker.syncValueWith(Deadlocker.java:28)
+	- locked <0x00000007955f5248> (a by.darashchonak.mentoring.deadlock.Deadlocker)
+	at by.darashchonak.mentoring.deadlock.Main.lambda$0(Main.java:14)
+	at by.darashchonak.mentoring.deadlock.Main$$Lambda$1/531885035.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:745)
+
+Found 1 deadlock.
+
